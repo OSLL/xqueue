@@ -19,13 +19,18 @@ RUN touch /edx/app/log/edx.log
 RUN chown app:app /edx/app/log/edx.log
 
 WORKDIR /edx/app/xqueue
+
+# RUN python3 -m venv /edx/app/xqueue_venv
 COPY requirements /edx/app/xqueue/requirements
 COPY requirements.txt /edx/app/xqueue/requirements.txt
-RUN pip install -r requirements.txt
+
+#RUN . /edx/app/xqueue_venv/bin/activate && pip install -U pip
+#RUN . /edx/app/xqueue_venv/bin/activate && pip -V
+#RUN . /edx/app/xqueue_venv/bin/activate && pip install -r requirements.txt
+RUN pip install -U pip && pip install -r requirements.txt
 
 USER app
-
-EXPOSE 8040
-CMD gunicorn -c /edx/app/xqueue/xqueue/docker_gunicorn_configuration.py --bind=0.0.0.0:8040 --workers 2 --max-requests=1000 xqueue.wsgi:application
-
+EXPOSE 18040
+CMD gunicorn -c /edx/app/xqueue/xqueue/docker_gunicorn_configuration.py --bind=0.0.0.0:18040 --workers 2 --max-requests=1000 xqueue.wsgi:application
 COPY . /edx/app/xqueue
+
