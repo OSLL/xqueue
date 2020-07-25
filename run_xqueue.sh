@@ -32,4 +32,4 @@ docker-compose exec xqueue bash -c 'cd /edx/app/xqueue && python manage.py migra
 # Add users that graders use to fetch data, there's one default user in Ansible which is part of our settings
 docker-compose exec xqueue bash -c 'cd /edx/app/xqueue && python manage.py update_users' 
 # Replace previous command with this when json file ready
-#docker-compose exec xqueue bash -c 'cd /edx/app/xqueue && python manage.py update_users_from_file -f users.json' 
+#docker-compose exec xqueue bash -c 'cd /edx/app/xqueue && python manage.py update_users_from_file --file users.json' 
