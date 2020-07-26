@@ -32,7 +32,7 @@ if __name__ == '__main__':
         queues_names_dct = json_content.get('queue_names')
         if queues_names_dct is None:
             queues_names_dct = {}
-        new_xqueues = 'XQUEUES = {}\n'.format(json.dumps(queues_names_dct, sort_keys=True, indent=4))
+        new_xqueues = 'XQUEUES = {}'.format(json.dumps(queues_names_dct, sort_keys=True, indent=4))
 
     with open(args.module_name, 'r+') as f:
         source = f.read()

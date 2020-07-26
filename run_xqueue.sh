@@ -24,12 +24,12 @@ echo -e "${GREEN}Ensuring MySQL databases and users exist...${NC}"
 docker-compose exec -T mysql bash -c "mysql -uroot mysql" < provision.sql
 
 # Set queue names in Xqueue settings.py
-#python update_queues_names.py xqueue/settings.py queue_names.json
+python update_queues_names.py xqueue/settings.py $1
 # Bring up XQueue
 docker-compose up -d --build xqueue
 # Run migrations
-docker-compose exec xqueue bash -c 'cd /edx/app/xqueue && python manage.py migrate'
+docker-compose exec xqueue bash -c "cd /edx/app/xqueue && python manage.py migrate"
 # Add users that graders use to fetch data, there's one default user in Ansible which is part of our settings
-docker-compose exec xqueue bash -c 'cd /edx/app/xqueue && python manage.py update_users' 
+#docker-compose exec xqueue bash -c 'cd /edx/app/xqueue && python manage.py update_users' 
 # Replace previous command with this when json file ready
-#docker-compose exec xqueue bash -c 'cd /edx/app/xqueue && python manage.py update_users_from_file --file users.json' 
+docker-compose exec xqueue bash -c "cd /edx/app/xqueue && python manage.py update_users_from_file --file $1"
