@@ -2,6 +2,29 @@ Part of `edX code`__.
 
 __ http://code.edx.org/
 
+## Proctoring part
+
+Описание проблемы с очередями (для понимания решения) - https://github.com/OSLL/proctoring-ml/issues/122
+Для развертывания:
+1. Создать json файл следующего формата:
+```
+{
+	"queue_names": {
+		"test-pull": "",
+		"test-name": ""
+	},
+	"xqueue_users": {
+		"lms": "password",
+		"test": "test_pass"
+	}
+}
+```
+2. Запустить:
+```
+./run_xqueue.sh <json_file>
+````
+> Закоммитил test.json для наглядности
+
 xqueue
 ======
 
