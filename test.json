@@ -1,0 +1,11 @@
+{
+	"queue_names": {
+		"test-pull": "",
+		"test-name": ""
+	},
+
+	"xqueue_users": {
+		"lms": "password",
+		"test": "test_pass"
+	}
+}
