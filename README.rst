@@ -2,8 +2,6 @@ Part of `edX code`__.
 
 __ http://code.edx.org/
 
-> Закоммитил test.json для наглядности
-
 xqueue
 ======
 
