@@ -3,35 +3,13 @@ version: "2.1"
 services:
   xqueue:
     container_name: "xqueue"
-    build: ./
-    image: xqueue:latest
-#    command: bash -c 'source /edx/app/xqueue/xqueue_env && while true; do python /edx/app/xqueue/xqueue/manage.py runserver 0.0.0.0:18040 ; sleep 2; done'
+    #build: ./
+    image: 451687910923/xqueue-custom:latest
     volumes:
       - .:/edx/app/xqueue
-    # depends_on: even though we need mysql, we can't refer to it because it's started in the other compose file
     networks:
       default:
         aliases:
           - edx.devstack.xqueue
     ports:
       - 18040:18040
-
-  mysql:
-    command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci
-    container_name: "edx.${COMPOSE_PROJECT_NAME:-devstack}.mysql"
-    hostname: mysql.devstack.edx
-    environment:
-      MYSQL_ROOT_PASSWORD: ""
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-    image: mysql:5.6
-    networks:
-      default:
-        aliases:
-          - edx.devstack.mysql
-    # ports:
-    #   - "3506:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql    
-
-volumes:
-    mysql_data:
