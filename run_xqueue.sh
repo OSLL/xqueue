@@ -2,8 +2,13 @@ set -e
 set -o pipefail
 set -x
 
-# Set queue names in Xqueue settings.py, AVAILABLE ONLY IN BUILD USING DOCKERFILE, with --build option
-#python update_queues_names.py xqueue/settings.py $1
+# If you want to build image manually:
+# 1. uncomment build in docker-compose.yml
+# 2. run python update_queues_names.py xqueue/settings.py test.json
+# 3. run docker-compose build xqueue
+# 4. run this script
+# Otherwise, run this script
+
 # Bring up XQueue
 docker-compose up -d xqueue
 # Run migrations

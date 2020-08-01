@@ -28,7 +28,11 @@ REQUESTS_TIMEOUT = 5    # seconds
 # grader before timing out the request.
 GRADING_TIMEOUT = 30    # seconds
 
-XQUEUES = {'test-pull': None}
+XQUEUES = {
+    "processed": "",
+    "processing": "",
+    "to_process": ""
+}
 
 # How many times XQueue posting a result back to the LMS can fail
 # This happens during put_submission in the external interface as well
