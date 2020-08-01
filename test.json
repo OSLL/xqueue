@@ -1,11 +1,12 @@
 {
 	"queue_names": {
-		"test-pull": "",
-		"test-name": ""
+		"to_process": "",
+		"processing": "",
+		"processed": ""
 	},
 
 	"xqueue_users": {
 		"lms": "password",
-		"test": "test_pass"
+		"ml_service": "ml_password"
 	}
 }
