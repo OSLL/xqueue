@@ -3,8 +3,8 @@ version: "2.1"
 services:
   xqueue:
     container_name: "xqueue"
-    #build: ./
-    image: 451687910923/xqueue-custom:latest
+    #   build: ./
+    image: chargosudar/xqueue-custom:latest
     volumes:
       - .:/edx/app/xqueue
     networks:
