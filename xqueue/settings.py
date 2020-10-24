@@ -29,9 +29,8 @@ REQUESTS_TIMEOUT = 5    # seconds
 GRADING_TIMEOUT = 30    # seconds
 
 XQUEUES = {
-    "processed": "",
-    "processing": "",
-    "to_process": ""
+    "screencast_queue": "",
+    "webcam_queue": ""
 }
 
 # How many times XQueue posting a result back to the LMS can fail
