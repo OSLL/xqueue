@@ -7,9 +7,6 @@ services:
     image: chargosudar/xqueue-custom:latest
     volumes:
       - .:/edx/app/xqueue
-    networks:
-      default:
-        aliases:
-          - edx.devstack.xqueue
+    network_mode: "host"
     ports:
       - 18040:18040
