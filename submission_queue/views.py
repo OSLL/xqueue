@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
+import logging
+
 log = logging.getLogger(__name__)
 
 # Xqueue reply format:
