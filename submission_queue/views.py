@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
+log = logging.getLogger(__name__)
 
 # Xqueue reply format:
 #    JSON-serialized dict:
@@ -23,6 +24,7 @@ def log_in(request):
     if request.method == 'POST':
         p = request.POST.copy()
         if 'username' and 'password' in p:
+            log.error('USERNAME %s. PASSWORD: %s' % (p['username'], p['password']))            
             user = authenticate(username=p['username'], password=p['password'])
             if user is not None:
                 login(request, user)
